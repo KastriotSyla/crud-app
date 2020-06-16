@@ -1,0 +1,22 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/users']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-content>
+    <dl>
+      <dt>Id:</dt>
+      <dd>{{user.id}}</dd>
+      <dt>FirstName:</dt>
+      <dd>{{user.firstName}}</dd>
+      <dt>LastName:</dt>
+      <dd>{{user.LastName}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions *ngIf="isAdmin">
+    <a mat-raised-button color="primary" [routerLink]="['/user-edit', user.id]"><mat-icon>edit</mat-icon></a>
+    <a mat-raised-button color="warn" (click)="deleteBook(user.id)"><mat-icon>delete</mat-icon></a>
+  </mat-card-actions>
+  <mat-card-actions *ngIf="isMenager">
+    <a mat-raised-button color="primary" [routerLink]="['/user-edit', user.id]"><mat-icon>edit</mat-icon></a>
+  </mat-card-actions>
+</mat-card>
